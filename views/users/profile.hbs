@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil del Usuario</title>
+</head>
+<body>
+    <h1>Perfil del Usuario</h1>
+    <h2>Información Básica</h2>
+    <p><strong>Nombre:</strong> {{user.name}}</p>
+    <p><strong>Nombre de Usuario:</strong> {{user.username}}</p>
+    <p><strong>Avatar:</strong> <img src="{{user.avatarUrl}}" alt="{{user.name}}" style="width: 300px; height: 200px;"></p>
+
+    <h2>Tweets Creados</h2>
+    <ul>
+        {{#each tweets}}
+            <li>
+                <p><strong>{{this.message}}</strong></p>
+                <p>Creado hace: {{moment createdAt fromNow}}</p>
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

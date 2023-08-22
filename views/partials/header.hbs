@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+  <div class="container d-flex justify-space-between">
+    {{#if currentUser}}
+      <a class="navbar-brand" href="/tweets/{{currentUser.username}}">IronTwitter</a>
+    {{else}}
+      <a class="navbar-brand" href="/tweets">IronTwitter <a href="users/register">Registrate para empezar a usar IronTwitter</a></a>
+
+    {{/if}}
+    {{#if currentUser}}
+      <a class="navbar-brand" href="/profile/{{currentUser.id}}">
+        <img src="{{ currentUser.avatar }}" alt="{{ currentUser.username }} Avatar" style="width: 50%;">
+        {{ currentUser.username }}
+      </a>
+      <form method="POST" action="/logout">
+        <button type="submit" class="btn btn-danger">Log out</button>
+      </form>
+
+      <form method="GET" action="/tweets/new">
+        <button type="submit" class="btn btn-danger">Twittear</button>
+      </form>
+    {{/if}}
+  </div>
+</nav>
